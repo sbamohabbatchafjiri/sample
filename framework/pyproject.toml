@@ -145,7 +145,7 @@ dev = [
     "GitPython==3.1.50",
     "licensecheck==2025.1.0",
     "pre-commit==3.5.0",
-    "sphinx-substitution-extensions==2022.2.16",
+    "sphinx-substitution-extensions==2026.8.13.1",
     "sphinxext-opengraph==0.9.1",
     "docstrfmt @ git+https://github.com/charlesbvll/docstrfmt.git@patch-2 ; python_version >= '3.11' and python_version < '4.0'",
     "docsig==0.84.0",
