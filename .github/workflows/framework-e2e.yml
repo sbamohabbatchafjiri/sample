@@ -215,7 +215,7 @@ jobs:
       - name: Cache Python location
         if: ${{ needs.changes.outputs.framework == 'true' }}
         id: cache-restore-python
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: ${{ env.pythonLocation }}
           key: pythonloc-${{ runner.os }}-${{ matrix.directory }}-${{ env.pythonLocation }}-${{ hashFiles(format('./framework/e2e/{0}/pyproject.toml', matrix.directory)) }}
@@ -254,7 +254,7 @@ jobs:
       #   run: ./../test_reconnection.sh sqlite
       - name: Cache save Python location
         id: cache-save-python
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         if: ${{ needs.changes.outputs.framework == 'true' && github.ref_name == 'main' &&  !steps.cache-restore-python.outputs.cache-hit }}
         with:
           path: ${{ env.pythonLocation }}
@@ -300,7 +300,7 @@ jobs:
           python -m pip install "flwr[simulation] @ ${WHEEL_URL}"
       - name: Cache Datasets
         if: ${{ needs.changes.outputs.framework == 'true' }}
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: "~/.keras"
           key: keras-datasets
